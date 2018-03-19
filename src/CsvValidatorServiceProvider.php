@@ -27,8 +27,7 @@ class CsvValidatorServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app['csv-validator'] = $this->app->share(function($app)
-        {
+        $this->app->singleton('csv-validator', function ($app) {
             return new CsvValidator;
         });
     }
